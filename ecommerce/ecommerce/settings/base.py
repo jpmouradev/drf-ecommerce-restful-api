@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # External
     'rest_framework',
     # Internal Apps
+    'ecommerce.product',
 ]
 
 MIDDLEWARE = [
