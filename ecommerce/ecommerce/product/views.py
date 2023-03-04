@@ -6,8 +6,7 @@ from .models import Category
 from .serializers import CategorySerializer
 
 
-class CategoryView(viewsets.Viewset):
-    # A simple viewset for viewing all categories
+class CategoryViewSet(viewsets.ViewSet):
     queryset = Category.objects.all()
 
     def list(self, request):
