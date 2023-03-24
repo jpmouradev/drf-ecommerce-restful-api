@@ -12,20 +12,20 @@ class CategorySerializer(serializers.ModelSerializer):
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
-        fields = "__all__"
+        exclude = ("id",)
 
+class ProductLineSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProductLine
+        exclude = ("id",)
 
 class ProductSerializer(serializers.ModelSerializer):
     brand = BrandSerializer()
     category = CategorySerializer()
+    product_line = ProductLineSerializer(many=True)
 
     class Meta:
         model = Product
-        fields = "__all__"
+        exclude = ("id",)
 
-class ProductLineSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
-
-    class Meta:
-        model = ProductLine
-        fields = "__all__"

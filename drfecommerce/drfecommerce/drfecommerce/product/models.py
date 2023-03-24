@@ -41,5 +41,6 @@ class ProductLine(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name="product_line"
     )
     is_active = models.BooleanField(default=False)
