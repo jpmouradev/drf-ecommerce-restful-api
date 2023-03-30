@@ -16,11 +16,12 @@ class BrandSerializer(serializers.ModelSerializer):
         model = Brand
         exclude = ("id",)
 
-class ProductLineSerializer(serializers.ModelSerializer):
 
+class ProductLineSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductLine
         exclude = ("id", "is_active", "product")
+
 
 class ProductSerializer(serializers.ModelSerializer):
     brand_name = serializers.CharField(source="brand.name")
@@ -29,10 +30,11 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ("name",
-                  "slug",
-                  "description",
-                  "brand_name",
-                  "category_name",
-                  "product_line")
-
+        fields = (
+            "name",
+            "slug",
+            "description",
+            "brand_name",
+            "category_name",
+            "product_line",
+        )
